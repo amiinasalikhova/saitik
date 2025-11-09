@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миссии Роскосмос: От Гагарина до Луны</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars stars2"></div>
+    <div class="nebula"></div>
+
+    <div class="container">
+        <!-- Левая колонка — навигация -->
+        <aside class="sidebar">
+            <div class="logo">Космос</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="black-holes.html" class="nav-link">Чёрные дыры</a>
+                <a href="galaxies.html" class="nav-link">Галактики</a>
+                <a href="roscosmos.html" class="nav-link active">Миссии Роскосмос</a>
+                <a href="exoplanets.html" class="nav-link">Экзопланеты</a>
+            </nav>
+        </aside>
+
+        <!-- Правая колонка — контент -->
+        <main class="content">
+            <section class="hero roscosmos-hero">
+                <h1>Роскосмос</h1>
+                <p class="subtitle">От первого спутника до новой лунной программы</p>
+                <div class="flag-animation">РОССИЯ</div>
+                <a href="index.html" class="home-btn">Домой</a>
+            </section>
+
+            <!-- Две колонки текста -->
+            <div class="text-columns">
+                <p>Государственная корпорация «Роскосмос» — наследница советской космической программы, которая первой вывела человека в космос. 12 апреля 1961 года Юрий Гагарин на корабле «Восток-1» сказал: <strong>«Поехали!»</strong></p>
+
+                <p>За 67 лет Россия запустила более <strong>3500 космических аппаратов</strong>, включая первый спутник (1957), первую женщину в космос (1963), первую станцию на Венере (1970), первую орбитальную станцию «Салют» (1971) и «Мир» (1986–2001).</p>
+
+                <p>С 2011 года Россия — единственная страна, доставляющая космонавтов на МКС. Корабли «Союз» совершили более <strong>150 пилотируемых полётов</strong> без единой аварии с экипажем.</p>
+
+                <p>Сегодня Роскосмос строит новый космодром <strong>Восточный</strong>, разрабатывает ракету «Ангара-А5», корабль «Орёл» и лунную программу «Луна-Глоб». Планируется высадка на Луну в 2030 году.</p>
+
+                <p>В 2024 году запущена миссия <strong>«Луна-25»</strong> — первая за 47 лет посадка на южный полюс Луны. Впереди — «Луна-26», «Луна-27» и лунная база.</p>
+
+                <p>Россия лидирует в создании ядерных буксиров для полётов к Марсу и Юпитеру. Проект «Нуклон» стартует в 2030 году.</p>
+            </div>
+
+            <!-- Интерактивная 3D-ракета Ангара-А5 -->
+            <section class="angara-section">
+                <h2>Ракета «Ангара-А5»</h2>
+                <p class="hint">Крути, нажми — запусти ракету!</p>
+                <div class="angara-container">
+                    <div id="angaraRocket" class="angara-rocket">
+                        <div class="rocket-body"></div>
+                        <div class="rocket-nose"></div>
+                        <div class="rocket-engines"></div>
+                        <div class="flame"></div>
+                    </div>
+                </div>
+                <button id="launchBtn">ЗАПУСК!</button>
+            </section>
+
+
+            <!-- Карта космодромов -->
+            <section class="cosmodromes">
+                <h2>Космодромы России</h2>
+                <div class="map-russia">
+                    <div class="cosmodrome baikonur" data-name="Байконур" data-info="Казахстан • 1955 • Союз, Прогресс"></div>
+                    <div class="cosmodrome vostochny" data-name="Восточный" data-info="Амурская обл. • 2016 • Ангара"></div>
+                    <div class="cosmodrome plesetsk" data-name="Плесецк" data-info="Архангельская обл. • 1966 • Рокот, Ангара"></div>
+                </div>
+                <div class="cosmodrome-info">
+                    <h3 id="cosmoTitle">Наведи на космодром</h3>
+                    <p id="cosmoDesc">Информация появится здесь...</p>
+                </div>
+            </section>
+
+            <!-- Хронология миссий -->
+            <section class="timeline">
+                <h2>Хронология достижений</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item" data-year="1957">Спутник-1</div>
+                    <div class="timeline-item" data-year="1961">Гагарин</div>
+                    <div class="timeline-item" data-year="1963">Терешкова</div>
+                    <div class="timeline-item" data-year="1971">Салют-1</div>
+                    <div class="timeline-item" data-year="1986">Мир</div>
+                    <div class="timeline-item" data-year="1998">МКС</div>
+                    <div class="timeline-item" data-year="2024">Луна-25</div>
+                    <div class="timeline-item" data-year="2030">Луна (высадка)</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>© 2025 11Г Амина Салихова. Все права защищены.</p>
+        <p><a href="https://github.com/amiinasalikhova" target="_blank">GitHub: @amiinasalikhova</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Таймер до следующего пуска (15 февраля 2025)
+        const countdown = document.getElementById('countdown');
+        const targetDate = new Date('2025-02-15T06:00:00').getTime();
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdown.innerHTML = `${days}д ${hours}ч ${minutes}м ${seconds}с`;
+
+            if (distance < 0) {
+                countdown.innerHTML = "ПУСК!";
+            }
+        }, 1000);
+
+        // Запуск ракеты
+        const rocket = document.getElementById('angaraRocket');
+        const launchBtn = document.getElementById('launchBtn');
+        launchBtn.addEventListener('click', () => {
+            rocket.style.transform = 'translateY(-100vh)';
+            rocket.querySelector('.flame').style.opacity = '1';
+            setTimeout(() => {
+                rocket.style.transform = 'translateY(0)';
+                rocket.querySelector('.flame').style.opacity = '0';
+            }, 3000);
+        });
+
+        // Интерактивная карта космодромов
+        document.querySelectorAll('.cosmodrome').forEach(c => {
+            c.addEventListener('click', () => {
+                document.getElementById('cosmoTitle').textContent = c.dataset.name;
+                document.getElementById('cosmoDesc').textContent = c.dataset.info;
+            });
+        });
+
+
+        // Хронология — подсветка
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.style.background = '#0ff';
+                item.style.color = '#000';
+            });
+            item.addEventListener('mouseout', () => {
+                item.style.background = 'rgba(0,255,255,0.1)';
+                item.style.color = '#fff';
+            });
+        });
+    </script>
+    <!-- КОСМИЧЕСКИЙ ИНФОРМЕР -->
+<div class="cosmic-informer">
+    <div class="informer-header">
+        <span>СТАТУС КОСМОСА</span>
+        <button id="refreshBtn">Обновить</button>
+    </div>
+    <div class="informer-body">
+        <p>Время (МСК): <span id="moscowTime">--:--:--</span></p>
+        <p>Людей в космосе: <span id="astroCount">--</span></p>
+        <p>Температура на МКС: <span id="issTemp">--°C</span></p>
+        <p>До Луны: <span id="moonDist">-- км</span></p>
+        <p>До Марса: <span id="marsDist">-- млн км</span></p>
+        <p class="next-launch">Следующий пуск: <span id="nextLaunch">Загрузка...</span></p>
+    </div>
+</div>
+
+</body>
+</html>

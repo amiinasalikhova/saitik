@@ -4,95 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Космос: Путешествие к звёздам</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-    <link href="css/index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- Звёздный фон -->
     <div class="stars"></div>
-    <div class="stars2"></div>
+    <div class="stars stars2"></div>
     <div class="nebula"></div>
 
-    <div class="container-fluid">
-        <div class="container">
-
-            <!-- НАВИГАЦИЯ -->
-            <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-                <a class="navbar-brand" href="#">🌌 Космос</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="#">Главная</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index2.html">Черные дыры</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Галактики</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Миссии</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+        <!-- Левая колонка -->
+        <aside class="sidebar">
+            <div class="logo">Космос</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="black-holes.html" class="nav-link">Чёрные дыры</a>
+                <a href="galaxies.html" class="nav-link">Галактики</a>
+                <a href="roscosmos.html" class="nav-link">Миссии Роскосмос</a>
+                <a href="exoplanets.html" class="nav-link">Экзопланеты</a>
             </nav>
+        </aside>
 
-            <!-- КАРУСЕЛЬ С КОСМИЧЕСКИМИ ФОТО -->
-            <div id="spaceCarousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#spaceCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#spaceCarousel" data-slide-to="1"></li>
-                    <li data-target="#spaceCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://s0.rbk.ru/v6_top_pics/media/img/7/20/756662541234207.webp" class="d-block w-100" alt="Столпы Творения">
-                        <div class="carousel-caption">
-                            <h5>Столпы Творения</h5>
-                            <p>Туманность Орёл, снято Хабблом</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://minio.nplus1.ru/app-images/803375/649d932a15c25_img_desktop.jpg" class="d-block w-100" alt="Космос Джеймса Уэбба">
-                        <div class="carousel-caption">
-                            <h5>Глубокий космос</h5>
-                            <p>Джеймс Уэбб: первые галактики</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://habrastorage.org/getpro/habr/upload_files/d16/24b/f63/d1624bf63a980e8886fae6f70ace775a.jpg" class="d-block w-100" alt="Земля с Artemis">
-                        <div class="carousel-caption">
-                            <h5>Земля с Луны</h5>
-                            <p>Снимок с миссии Artemis I</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#spaceCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#spaceCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
+        <!-- Правая колонка -->
+        <main class="content">
+            <section class="hero">
+                <h1>Путешествие к звёздам</h1>
+                <p>Открой тайны Вселенной</p>
+            </section>
+
+            <div class="text-columns">
+                <p>Космос — это не просто пустота. Это место, где рождаются звёзды, где время искривляется у чёрных дыр, где целые галактики танцуют в миллиардах световых лет от нас.</p>
+                <p>За последние 50 лет человечество запустило тысячи спутников, отправило зонды к Марсу, Юпитеру и даже за пределы Солнечной системы. Телескоп «Джеймс Уэбб» показывает нам галактики, которые существовали через 300 миллионов лет после Большого Взрыва.</p>
+                <p>А Россия продолжает традиции Юрия Гагарина: «Луна-25», «Спектр-РГ», «ЭкзоМарс» — это лишь начало. Мы стоим на пороге новой космической эры.</p>
+                <p>На этом сайте ты узнаешь о самых загадочных объектах Вселенной: от сверхмассивных чёрных дыр до экзопланет, где может быть жизнь.</p>
             </div>
 
+            <section class="carousel">
+                <div class="slide active">
+                    <img src="https://s0.rbk.ru/v6_top_pics/media/img/7/20/756662541234207.webp" alt="Столпы Творения">
+                    <div class="caption"><h3>Столпы Творения</h3><p>Хаббл, 2024</p></div>
+                </div>
+                <div class="slide">
+                    <img src="https://minio.nplus1.ru/app-images/803375/649d932a15c25_img_desktop.jpg" alt="Джеймс Уэбб">
+                    <div class="caption"><h3>Первые галактики</h3><p>JWST</p></div>
+                </div>
+                <div class="slide">
+                    <img src="https://habrastorage.org/getpro/habr/upload_files/d16/24b/f63/d1624bf63a980e8886fae6f70ace775a.jpg" alt="Artemis">
+                    <div class="caption"><h3>Земля с Луны</h3><p>Artemis I</p></div>
+                </div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+            </section>
 
-            <!-- ВИЗУАЛИЗАЦИЯ СОЛНЕЧНОЙ СИСТЕМЫ -->
-            <div class="solar-system">
-                <h2 class="text-center my-5 orbitron">Солнечная система</h2>
+            <section class="solar-system">
+                <h2>Солнечная система</h2>
+                <p class="hint">Наведи на планету — увидишь название!</p>
                 <div class="orbit-container">
                     <div class="sun"></div>
-                    <div class="orbit mercury-orbit"><div class="planet mercury"></div></div>
-                    <div class="orbit venus-orbit"><div class="planet venus"></div></div>
-                    <div class="orbit earth-orbit"><div class="planet earth"></div></div>
-                    <div class="orbit mars-orbit"><div class="planet mars"></div></div>
-                    <div class="orbit jupiter-orbit"><div class="planet jupiter"></div></div>
+                    <div class="orbit mercury-orbit"><div class="planet mercury" data-name="Меркурий"></div></div>
+                    <div class="orbit venus-orbit"><div class="planet venus" data-name="Венера"></div></div>
+                    <div class="orbit earth-orbit"><div class="planet earth" data-name="Земля"></div></div>
+                    <div class="orbit mars-orbit"><div class="planet mars" data-name="Марс"></div></div>
+                    <div class="orbit jupiter-orbit"><div class="planet jupiter" data-name="Юпитер"></div></div>
+                    <div class="orbit saturn-orbit"><div class="planet saturn" data-name="Сатурн"></div></div>
                 </div>
-                <p class="text-center mt-4">Наведи на планету — увидишь название!</p>
-            </div>
-
-        </div>
+            </section>
+        </main>
     </div>
 
-    <!-- JS Bootstrap -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.4.1.js"></script>
+
+    <footer>
+        <p>© 2025 11Г Амина Салихова. Все права защищены.</p>
+        <p><a href="https://github.com/amiinasalikhova" target="_blank">GitHub: @amiinasalikhova</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <!-- КОСМИЧЕСКИЙ ИНФОРМЕР -->
+<div class="cosmic-informer">
+    <div class="informer-header">
+        <span>СТАТУС КОСМОСА</span>
+        <button id="refreshBtn">Обновить</button>
+    </div>
+    <div class="informer-body">
+        <p>Время (МСК): <span id="moscowTime">--:--:--</span></p>
+        <p>Людей в космосе: <span id="astroCount">--</span></p>
+        <p>Температура на МКС: <span id="issTemp">--°C</span></p>
+        <p>До Луны: <span id="moonDist">-- км</span></p>
+        <p>До Марса: <span id="marsDist">-- млн км</span></p>
+        <p class="next-launch">Следующий пуск: <span id="nextLaunch">Загрузка...</span></p>
+    </div>
+</div>
 </body>
 </html>

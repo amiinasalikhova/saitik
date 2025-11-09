@@ -1,0 +1,942 @@
+/* === ОБЩИЕ СТИЛИ === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #000;
+    color: #fff;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+.stars, .stars2, .nebula {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1;
+}
+.stars {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="1" fill="white"/></svg>') repeat;
+    animation: twinkle 5s infinite; opacity: 0.8;
+}
+.stars2 {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="0.7" fill="%23fff"/></svg>') repeat;
+    animation: twinkle 10s infinite reverse; opacity: 0.6;
+}
+.nebula {
+    background: radial139-gradient(circle at 30% 50%, rgba(120,0,255,0.15), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(0,255,255,0.1), transparent 60%);
+    animation: nebula 30s infinite alternate;
+}
+@keyframes twinkle { 0%,100%{opacity:0.4} 50%{opacity:1} }
+@keyframes nebula { 0%{transform:translate(0,0)} 100%{transform:translate(50px,-30px)} }
+
+/* === КОНТЕЙНЕР === */
+.container { display: flex; min-height: 100vh; }
+
+/* === ЛЕВАЯ КОЛОНКА === */
+.sidebar {
+    width: 280px; background: rgba(10,10,30,0.95); backdrop-filter: blur(12px);
+    padding: 40px 20px; position: fixed; height: 100%; z-index: 10;
+    border-right: 1px solid rgba(0,255,255,0.2);
+}
+.logo {
+    font-family: 'Orbitron', sans-serif; font-size: 2.3rem; font-weight: 700;
+    text-align: center; margin-bottom: 50px;
+    background: linear-gradient(135deg, #0ff, #f0f, #ff0);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.nav-link {
+    display: block; padding: 15px 20px; color: #ccc; text-decoration: none;
+    border-radius: 10px; margin: 8px 0; transition: all 0.3s; font-weight: 500;
+}
+.nav-link:hover, .nav-link.active {
+    background: rgba(0,255,255,0.2); color: #0ff;
+    box-shadow: 0 0 15px rgba(0,255,255,0.4); transform: translateX(10px);
+}
+
+/* === ПРАВАЯ КОЛОНКА === */
+.content {
+    flex: 1; margin-left: 280px; padding: 40px;
+}
+.hero h1 {
+    font-family: 'Orbitron', sans-serif; font-size: 3.8rem; margin-bottom: 20px;
+    background: linear-gradient(135deg, #0ff, #fff, #f0f);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.text-columns {
+    columns: 2; column-gap: 40px; margin: 50px 0;
+    text-align: justify; font-size: 1.1rem;
+}
+.text-columns p { margin-bottom: 20px; }
+
+/* === КАРУСЕЛЬ === */
+.carousel { position: relative; max-width: 900px; margin: 50px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(0,255,255,0.3); }
+.slide { display: none; }
+.slide.active { display: block; }
+.slide img { width: 100%; height: 500px; object-fit: cover; }
+.caption {
+    position: absolute; bottom: 30px; left: 30px;
+    background: rgba(0,0,0,0.7); padding: 15px 25px; border-radius: 15px;
+}
+.prev, .next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(0,0,0,0.6); color: white; border: none; padding: 15px;
+    font-size: 2rem; cursor: pointer; border-radius: 50%;
+}
+.prev { left: 20px; } .next { right: 20px; }
+
+
+/* === СОЛНЕЧНАЯ СИСТЕМА === */
+.solar-system {
+    text-align: center;
+    padding: 100px 0;
+    position: relative;
+}
+
+.solar-system h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 0 0 25px #0ff;
+    margin-bottom: 20px;
+}
+
+.hint {
+    color: #0ff;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.orbit-container {
+    position: relative;
+    width: 750px;
+    height: 750px;
+    margin: 0 auto;
+    border: 3px dashed rgba(0, 255, 255, 0.4);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.3);
+}
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90px;
+    height: 90px;
+    background: radial-gradient(circle, #ffff00, #ff8800, #ff3300);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 100px #ffaa00, 0 0 150px #ff6600;
+    z-index: 10;
+    animation: pulse-sun 4s infinite alternate;
+}
+
+@keyframes pulse-sun {
+    0% { box-shadow: 0 0 100px #ffaa00, 0 0 150px #ff6600; }
+    100% { box-shadow: 0 0 120px #ffff00, 0 0 180px #ffaa00; }
+}
+
+/* Орбиты */
+.orbit {
+    position: absolute;
+    border: 1.5px solid rgba(0, 255, 255, 0.25);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Планеты */
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.4s ease;
+    z-index: 15;
+    /* ВАЖНО: убираем transform от родителя */
+    transform-origin: center;
+}
+
+/* ЭФФЕКТ НАВЕДЕНИЯ — РАБОТАЕТ НА ВСЕХ! */
+.planet::after {
+    content: attr(data-name);
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #0ff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    pointer-events: none;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    z-index: 100;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.planet:hover::after {
+    opacity: 1;
+    visibility: visible;
+    top: -65px;
+}
+
+/* Увеличение + свечение при наведении */
+.planet:hover {
+    transform: translateX(-50%) scale(2.2) !important;
+    box-shadow: 0 0 60px #0ff, 0 0 100px #00ffff;
+    z-index: 50;
+}
+
+/* Размеры и цвета планет */
+.mercury { width: 16px; height: 16px; background: #a8a8a8; box-shadow: 0 0 15px #aaa; }
+.venus   { width: 24px; height: 24px; background: #e6b800; box-shadow: 0 0 20px #ffcc00; }
+.earth   { width: 26px; height: 26px; background: #1e90ff; box-shadow: 0 0 25px #00ffff; }
+.mars    { width: 20px; height: 20px; background: #cd5c5c; box-shadow: 0 0 20px #ff4444; }
+.jupiter { width: 68px; height: 68px; background: #d2b55b; box-shadow: 0 0 40px #ffaa00; }
+.saturn  { 
+    width: 58px; height: 58px; 
+    background: #f4a460; 
+    box-shadow: 0 0 35px #ffcc00;
+    /* Кольца Сатурна */
+    position: relative;
+}
+.saturn::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(75deg);
+    box-shadow: 0 0 20px #fff;
+    z-index: -1;
+}
+
+/* Орбиты и анимация */
+.mercury-orbit { width: 140px; height: 140px; animation: orbit 5s linear infinite; }
+.venus-orbit   { width: 220px; height: 220px; animation: orbit 12s linear infinite; }
+.earth-orbit   { width: 300px; height: 300px; animation: orbit 18s linear infinite; }
+.mars-orbit    { width: 400px; height: 400px; animation: orbit 30s linear infinite; }
+.jupiter-orbit { width: 550px; height: 550px; animation: orbit 50s linear infinite; }
+.saturn-orbit  { width: 700px; height: 700px; animation: orbit 70s linear infinite; }
+
+
+@keyframes orbit {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .orbit-container {
+        width: 500px;
+        height: 500px;
+    }
+    .sun { width: 60px; height: 60px; }
+    .planet:hover { transform: translateX(-50%) scale(1.8) !important; }
+    .planet::after { font-size: 0.9rem; padding: 8px 15px; }
+}
+
+
+/* === FOOTER === */
+footer {
+    background: rgba(0,0,0,0.8); padding: 30px 0; text-align: center;
+    border-top: 1px solid rgba(0,255,255,0.3); margin-top: 100px;
+}
+footer p {
+    margin: 10px 0; color: #0ff; font-size: 1rem;
+}
+footer a {
+    color: #0ff; text-decoration: none; font-weight: 500;
+    transition: all 0.3s;
+}
+footer a:hover {
+    color: #fff; text-shadow: 0 0 10px #0ff;
+}
+
+/* === АДАПТИВ === */
+@media (max-width: 992px) {
+    .container { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: relative; padding: 20px; }
+    .content { margin-left: 0; padding: 20px; }
+    .text-columns { columns: 1; }
+}
+@media (max-width: 576px) {
+    .orbit-container { width: 350px; height: 350px; }
+    .hero h1 { font-size: 2.5rem; }
+}
+/* === ЧЁРНЫЕ ДЫРЫ — СПЕЦЭФФЕКТЫ === */
+.black-hole-section {
+    text-align: center;
+    padding: 80px 0;
+}
+.black-hole-section h2 {
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff;
+    margin-bottom: 20px;
+}
+.hint {
+    color: #0ff;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.black-hole-container {
+    perspective: 1000px;
+    margin: 50px 0;
+}
+
+#blackHole {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    cursor: crosshair;
+    transition: transform 0.3s;
+}
+
+#blackHole:hover {
+    transform: rotateY(10deg) rotateX(5deg);
+}
+
+.event-horizon {
+    width: 120px; height: 120px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 80px 30px #000 inset, 0 0 100px #000;
+    z-index: 5;
+    transition: all 0.6s ease;
+}
+
+.accretion-disk {
+    width: 360px; height: 360px;
+    background: conic-gradient(#ff0040, #ff8c00, #ffd700, #00ff80, #0080ff, #ff0040);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+    animation: rotate 8s linear infinite;
+    filter: blur(2px);
+    z-index: 2;
+}
+
+.grav-lens {
+    width: 500px; height: 500px;
+    border: 3px solid rgba(0, 255, 255, 0.4);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.6s;
+    z-index: 1;
+}
+
+.hawking-radiation {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 60%, rgba(0, 255, 255, 0.1));
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: pulse-glow 4s infinite;
+    z-index: 4;
+}
+
+#blackHole:hover .grav-lens {
+    opacity: 0.6;
+    animation: lens-pulse 3s infinite;
+}
+
+#blackHole:hover .hawking-radiation {
+    opacity: 0.3;
+}
+
+#blackHole:hover .event-horizon {
+    width: 180px;
+    height: 180px;
+    box-shadow: 0 0 150px 80px #000;
+}
+
+/* Анимации */
+@keyframes lens-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,255,0.7); }
+    50% { box-shadow: 0 0 0 80px rgba(0,255,255,0); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.4; }
+}
+
+/* Инфо-панель */
+.info-panel {
+    margin-top: 30px;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.info-panel p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+/* Карточки фактов */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 80px 0;
+}
+
+.fact-card {
+    background: rgba(0, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    text-align: center;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.fact-card:hover {
+    background: rgba(0, 255, 255, 0.15);
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.fact-card h3 {
+    color: #0ff;
+    margin-bottom: 10px;
+}
+/* === ГАЛАКТИКИ — ИНТЕРАКТИВНАЯ КАРТА === */
+.galaxy-map {
+    text-align: center;
+    padding: 100px 0;
+    perspective: 1000px;
+}
+.galaxy-map h2 {
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff;
+    margin-bottom: 20px;
+}
+.map-container {
+    height: 500px;
+    margin: 50px 0;
+    background: rgba(0, 0, 20, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0, 255, 255, 0.3);
+}
+#galaxyScene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s;
+}
+.galaxy {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s;
+    box-shadow: 0 0 30px #0ff;
+}
+.galaxy:hover {
+    transform: scale(1.5) !important;
+    box-shadow: 0 0 60px #0ff, 0 0 100px #00ffff;
+    z-index: 100;
+}
+.spiral {
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, #00ffff, #0088ff, #000033);
+    top: 40%; left: 40%;
+}
+.andromeda {
+    width: 100px; height: 100px;
+    background: conic-gradient(#ff00ff, #00ffff, #ffff00, #ff00ff);
+    top: 20%; left: 60%;
+    animation: pulse 4s infinite;
+}
+.m87 {
+    width: 120px; height: 90px;
+    background: radial-gradient(#ffff00, #ff8800);
+    top: 60%; left: 20%;
+}
+.sombrero {
+    width: 90px; height: 90px;
+    background: linear-gradient(45deg, #00ff88, #0088ff);
+    top: 70%; left: 70%;
+}
+.cartwheel {
+    width: 70px; height: 70px;
+    border: 8px double #00ffff;
+    background: transparent;
+    top: 30%; left: 15%;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Инфо-панель */
+.galaxy-info {
+    background: rgba(0, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 30px auto;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+}
+#galaxyTitle {
+    color: #0ff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Галерея фото */
+.photo-gallery {
+    padding: 80px 0;
+}
+.photo-gallery h2 {
+    text-align: center;
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff;
+    margin-bottom: 50px;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+.gallery-item {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    transition: all 0.4s;
+}
+.gallery-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.6);
+}
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.gallery-item p {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-weight: 500;
+}
+/* === РОСКОСМОС — ГЕРОЙ === */
+.roscosmos-hero {
+    position: relative;
+    overflow: hidden;
+}
+.flag-animation {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff, #0039a6, #d52b1e, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: wave 4s infinite;
+    margin: 20px 0;
+}
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* === ТАЙМЕР === */
+.launch-timer {
+    text-align: center;
+    background: rgba(255,0,0,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #f00;
+    margin: 50px auto;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(255,0,0,0.5);
+}
+.launch-timer h2 {
+    color: #f00;
+    text-shadow: 0 0 20px #f00;
+}
+#countdown {
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff;
+    margin: 20px 0;
+}
+#next-mission {
+    color: #ff0;
+    font-weight: bold;
+}
+
+/* === РАКЕТА АНГАРА === */
+.angara-section {
+    text-align: center;
+    padding: 100px 0;
+}
+.angara-container {
+    perspective: 1000px;
+    height: 500px;
+    margin: 50px 0;
+}
+.angara-rocket {
+    width: 120px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    transition: transform 3s ease;
+}
+.rocket-body {
+    width: 80px;
+    height: 300px;
+    background: linear-gradient(#fff, #ccc);
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+    border-radius: 40px 40px 10px 10px;
+    box-shadow: 0 0 30px #0ff;
+}
+.rocket-nose {
+    width: 80px;
+    height: 100px;
+    background: #d00;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+.rocket-engines {
+    width: 120px;
+    height: 50px;
+    background: #333;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    border-radius: 0 0 60px 60px;
+}
+.flame {
+    width: 80px;
+    height: 150px;
+    background: linear-gradient(transparent, #ff0, #f00);
+    position: absolute;
+    bottom: -100px;
+    left: 20px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: flame 0.2s infinite alternate;
+}
+@keyframes flame {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(1.3); }
+}
+#launchBtn {
+    margin-top: 20px;
+    padding: 15px 40px;
+    background: #f00;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 30px #f00;
+    transition: all 0.3s;
+}
+#launchBtn:hover {
+    background: #ff0;
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* === КОСМОДРОМЫ === */
+.map-russia {
+    width: 600px;
+    height: 400px;
+    margin: 50px auto;
+    position: relative;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400"><path fill="%23000" d="M0,0h600v400H0z"/></svg>');
+    border: 2px solid #0ff;
+    border-radius: 20px;
+}
+.cosmodrome {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #f00;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 20px #f00;
+    animation: pulse-red 2s infinite;
+}
+.baikonur { top: 280px; left: 200px; }
+.vostochny { top: 150px; left: 500px; }
+.plesetsk { top: 50px; left: 300px; }
+@keyframes pulse-red {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* === ХРОНОЛОГИЯ === */
+.timeline {
+    padding: 80px 0;
+    text-align: center;
+}
+.timeline-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.timeline-item {
+    background: rgba(0,255,255,0.1);
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 2px solid #0ff;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+.timeline-item:hover {
+    background: #0ff;
+    color: #000;
+    transform: scale(1.2);
+}
+/* === ЭКЗОПЛАНЕТЫ === */
+.exoplanet-hero {
+    position: relative;
+}
+.stats {
+    font-size: 1.4rem;
+    color: #0ff;
+    margin: 20px 0;
+    text-shadow: 0 0 10px #0ff;
+}
+
+/* === ПОИСК === */
+.exoplanet-search {
+    padding: 60px 0;
+    text-align: center;
+}
+#searchInput {
+    width: 80%;
+    max-width: 600px;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: 2px solid #0ff;
+    border-radius: 50px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    text-align: center;
+}
+#results {
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search-result {
+    background: rgba(0,255,255,0.1);
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    border: 1px solid #0ff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.search-result:hover {
+    background: rgba(0,255,255,0.3);
+    transform: scale(1.05);
+}
+
+/* === ЗОНА ОБИТАЕМОСТИ === */
+.habitable-zone {
+    text-align: center;
+    padding: 100px 0;
+}
+.solar-system-3d {
+    width: 700px;
+    height: 700px;
+    margin: 50px auto;
+    position: relative;
+    border: 2px dashed rgba(0,255,255,0.3);
+    border-radius: 50%;
+}
+.star {
+    width: 80px; height: 80px;
+    background: radial-gradient(#fff, #ff0);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 100px #ff0;
+}
+.habitable-ring {
+    width: 300px; height: 300px;
+    border: 8px double rgba(0,255,0,0.4);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    animation: rotate 30s linear infinite;
+}
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(0,255,255,0.2);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.planet:hover {
+    transform: scale(2) !important;
+    box-shadow: 0 0 50px #0ff;
+    z-index: 100;
+}
+.earth { width: 30px; height: 30px; background: #1e90ff; top: 335px; left: 335px; }
+.toi700d { width: 32px; height: 32px; background: #00ff00; top: 300px; left: 500px; animation: orbit 20s linear infinite; }
+.trappist { width: 28px; height: 28px; background: #00ffff; top: 400px; left: 200px; animation: orbit 25s linear infinite; }
+.k218b { width: 45px; height: 45px; background: #0088ff; top: 250px; left: 400px; animation: orbit 30s linear infinite; }
+
+/* === КАТАЛОГ === */
+.exoplanet-catalog {
+    padding: 80px 0;
+}
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.exo-card {
+    background: rgba(0,255,255,0.1);
+    padding: 25px;
+    border-radius: 20px;
+    border: 2px solid #0ff;
+    text-align: center;
+    transition: all 0.4s;
+    backdrop-filter: blur(10px);
+}
+.exo-card:hover {
+    transform: translateY(-20px) scale(1.05);
+    box-shadow: 0 0 50px rgba(0,255,255,0.7);
+    border-color: #00ff00;
+}
+.exo-card h3 {
+    color: #0ff;
+    font-size: 1.5rem;
+}
+/* === КОСМИЧЕСКИЙ ИНФОРМЕР === */
+.cosmic-informer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: rgba(0, 10, 30, 0.95);
+    border: 2px solid #0ff;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    z-index: 9999;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    animation: informerGlow 4s infinite alternate;
+}
+
+.informer-header {
+    background: linear-gradient(90deg, #0ff, #00f);
+    padding: 12px 15px;
+    color: #000;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#refreshBtn {
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#refreshBtn:hover {
+    transform: rotate(360deg);
+    transition: 0.5s;
+}
+
+.informer-body {
+    padding: 15px;
+    color: #0ff;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.informer-body p {
+    margin: 8px 0;
+    text-shadow: 0 0 10px #0ff;
+}
+
+.next-launch {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed #0ff;
+    color: #ff0 !important;
+    font-weight: bold;
+}
+
+@keyframes informerGlow {
+    0% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6); }
+    100% { box-shadow: 0 0 60px rgba(0, 255, 255, 0.9); }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .cosmic-informer {
+        width: 90%;
+        right: 5%;
+        left: 5%;
+    }
+}

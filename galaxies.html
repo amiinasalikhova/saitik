@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галактики: Острова Вселенной</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars stars2"></div>
+    <div class="nebula"></div>
+
+    <div class="container">
+        <!-- Левая колонка — навигация -->
+        <aside class="sidebar">
+            <div class="logo">Космос</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="black-holes.html" class="nav-link">Чёрные дыры</a>
+                <a href="galaxies.html" class="nav-link active">Галактики</a>
+                <a href="roscosmos.html" class="nav-link">Миссии Роскосмос</a>
+                <a href="exoplanets.html" class="nav-link">Экзопланеты</a>
+            </nav>
+        </aside>
+
+        <!-- Правая колонка — контент -->
+        <main class="content">
+            <section class="hero">
+                <h1>Галактики</h1>
+                <p class="subtitle">Острова звёзд во Вселенной</p>
+                <a href="index.html" class="home-btn">Домой</a>
+            </section>
+
+            <!-- Две колонки текста -->
+            <div class="text-columns">
+                <p>Галактика — это гравитационно связанная система из миллиардов звёзд, газа, пыли и тёмной материи. Во Вселенной насчитывается более <strong>2 триллионов галактик</strong>. Наша — Млечный Путь — содержит около 300 миллиардов звёзд.</p>
+
+                <p>В 1920-х Эдвин Хаббл доказал, что туманности — это отдельные галактики, а не часть Млечного Пути. Это открытие расширило Вселенную в миллионы раз.</p>
+
+                <p>Галактики делятся на три основных типа: <strong>спиральные</strong> (как Андромеда), <strong>эллиптические</strong> (M87) и <strong>неправильные</strong> (Магеллановы Облака). 70% всех галактик — спиральные.</p>
+
+                <p>Самая большая известная галактика — <strong>IC 1101</strong> — диаметром 6 миллионов световых лет. В ней триллион звёзд!</p>
+
+                <p>Галактики объединяются в <strong>скопления</strong>, <strong>сверхскопления</strong> и <strong>волокна</strong>. Мы живём в <strong>Ланиакее</strong> — сверхскоплении из 100 000 галактик.</p>
+
+                <p>Джеймс Уэбб в 2024 году нашёл галактики, которые существовали через 300 миллионов лет после Большого Взрыва. Это перевернуло космологию!</p>
+            </div>
+
+            <!-- ИНТЕРАКТИВНАЯ 3D-КАРТА ГАЛАКТИК -->
+            <section class="galaxy-map">
+                <h2>Интерактивная карта галактик</h2>
+                <p class="hint">Крути, приближай, кликай по галактикам!</p>
+                <div class="map-container">
+                    <div id="galaxyScene">
+                        <div class="galaxy spiral" data-name="Млечный Путь" data-info="Наша галактика, 100–400 млрд звёзд"></div>
+                        <div class="galaxy andromeda" data-name="Андромеда (M31)" data-info="2,5 млн св. лет от нас, столкнётся через 4,5 млрд лет"></div>
+                        <div class="galaxy m87" data-name="M87" data-info="Эллиптическая, сверхмассивная чёрная дыра 6,5 млрд масс Солнца"></div>
+                        <div class="galaxy sombrero" data-name="Сомбреро (M104)" data-info="Классическая спираль с пылевым кольцом"></div>
+                        <div class="galaxy cartwheel" data-name="Колесо Тележки" data-info="Кольцевая галактика после столкновения"></div>
+                    </div>
+                </div>
+                <div class="galaxy-info">
+                    <h3 id="galaxyTitle">Наведи на галактику</h3>
+                    <p id="galaxyDesc">Информация появится здесь...</p>
+                </div>
+            </section>
+
+
+            <!-- Галерея реальных фото -->
+            <section class="photo-gallery">
+                <h2>Лучшие снимки от Hubble и JWST</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Tarantula_Nebula_by_JWST.jpg/2560px-Tarantula_Nebula_by_JWST.jpg" alt="Hubble Ultra Deep Field">
+                        <p>Hubble Ultra Deep Field — 10 000 галактик</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/UDF423-SpiralGalaxy.jpg/330px-UDF423-SpiralGalaxy.jpg" alt="JWST Deep Field">
+                        <p>JWST: самые древние галактики</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ79ODB6yveSg4bJPqOgsRSRf8W3iFOUxaejw&s" alt="Столпы Творения">
+                        <p>Столпы Творения — Hubble vs JWST</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>© 2025 11Г Амина Салихова. Все права защищены.</p>
+        <p><a href="https://github.com/amiinasalikhova" target="_blank">GitHub: @amiinasalikhova</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Интерактивная 3D-карта галактик
+        const scene = document.getElementById('galaxyScene');
+        const galaxies = document.querySelectorAll('.galaxy');
+        const title = document.getElementById('galaxyTitle');
+        const desc = document.getElementById('galaxyDesc');
+
+        let rotation = 0;
+        let scale = 1;
+
+        // Вращение сцены
+        setInterval(() => {
+            rotation += 0.3;
+            scene.style.transform = `rotateY(${rotation}deg) scale(${scale})`;
+        }, 50);
+
+        // Приближение колесом мыши
+        scene.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            scale += e.deltaY * -0.001;
+            scale = Math.min(Math.max(0.5, scale), 2);
+        });
+
+        // Клик по галактике
+        galaxies.forEach(g => {
+            g.addEventListener('click', () => {
+                title.textContent = g.dataset.name;
+                desc.textContent = g.dataset.info;
+                g.style.transform = 'scale(2)';
+                setTimeout(() => g.style.transform = 'scale(1)', 500);
+            });
+        });
+
+        // Сброс при клике вне
+        scene.addEventListener('click', (e) => {
+            if (e.target === scene) {
+                title.textContent = "Наведи на галактику";
+                desc.textContent = "Информация появится здесь...";
+            }
+        });
+    </script>
+    <!-- КОСМИЧЕСКИЙ ИНФОРМЕР -->
+<div class="cosmic-informer">
+    <div class="informer-header">
+        <span>СТАТУС КОСМОСА</span>
+        <button id="refreshBtn">Обновить</button>
+    </div>
+    <div class="informer-body">
+        <p>Время (МСК): <span id="moscowTime">--:--:--</span></p>
+        <p>Людей в космосе: <span id="astroCount">--</span></p>
+        <p>Температура на МКС: <span id="issTemp">--°C</span></p>
+        <p>До Луны: <span id="moonDist">-- км</span></p>
+        <p>До Марса: <span id="marsDist">-- млн км</span></p>
+        <p class="next-launch">Следующий пуск: <span id="nextLaunch">Загрузка...</span></p>
+    </div>
+</div>
+
+</body>
+</html>

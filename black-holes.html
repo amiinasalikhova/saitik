@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чёрные дыры: Пожиратели света</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars stars2"></div>
+    <div class="nebula"></div>
+
+    <div class="container">
+        <!-- Левая колонка — навигация (как на главной) -->
+        <aside class="sidebar">
+            <div class="logo">Космос</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="black-holes.html" class="nav-link active">Чёрные дыры</a>
+                <a href="galaxies.html" class="nav-link">Галактики</a>
+                <a href="roscosmos.html" class="nav-link">Миссии Роскосмос</a>
+                <a href="exoplanets.html" class="nav-link">Экзопланеты</a>
+            </nav>
+        </aside>
+
+        <!-- Правая колонка — контент -->
+        <main class="content">
+            <section class="hero">
+                <h1>Чёрные дыры</h1>
+                <p class="subtitle">Гравитационные монстры, пожирающие свет и время</p>
+                <a href="index.html" class="home-btn">Домой</a>
+            </section>
+
+            <!-- Две колонки текста -->
+            <div class="text-columns">
+                <p>Чёрная дыра — это область пространства-времени, где гравитация настолько велика, что даже свет не может её покинуть. Они рождаются из коллапса сверхмассивных звёзд в конце их жизни. Первая фотография чёрной дыры была сделана в 2019 году — это M87* в галактике Мессье 87.</p>
+
+                <p>В центре нашей галактики Млечный Путь находится сверхмассивная чёрная дыра <strong>Стрелец A*</strong> массой в 4 миллиона раз больше Солнца. Её радиус Шварцшильда — всего 12 миллионов километров.</p>
+
+                <p>Согласно теории Стивена Хокинга, чёрные дыры не вечны — они <strong>испаряются</strong> за счёт квантового излучения. Маленькие чёрные дыры испаряются быстрее, а гигантские — за триллионы лет.</p>
+
+                <p>Событийный горизонт — это граница, за которой нет возврата. Время для наблюдателя у горизонта событий <strong>замедляется до полной остановки</strong>. Если вы упадёте в чёрную дыру, для внешнего наблюдателя вы будете вечно висеть на горизонте.</p>
+
+                <p>Существует три типа чёрных дыр: звёздные (до 100 солнечных масс), сверхмассивные (миллионы солнц) и первичные (образовались сразу после Большого Взрыва).</p>
+
+                <p>Недавно телескоп Event Horizon снял магнитные поля вокруг чёрной дыры — это открытие изменило наше понимание аккреционных дисков и джетов.</p>
+            </div>
+
+            <!-- Интерактивная чёрная дыра -->
+            <section class="black-hole-section">
+                <h2>Гравитационное линзирование</h2>
+                <p class="hint">Наведи курсор — увидишь, как искривляется пространство!</p>
+                <div class="black-hole-container">
+                    <div class="black-hole" id="blackHole">
+                        <div class="event-horizon"></div>
+                        <div class="accretion-disk"></div>
+                        <div class="grav-lens"></div>
+                        <div class="hawking-radiation"></div>
+                    </div>
+                </div>
+                <div class="info-panel">
+                    <p><strong>Радиус Шварцшильда:</strong> <span id="rs">12 млн км</span></p>
+                    <p><strong>Температура Хокинга:</strong> <span id="temp">10⁻⁸ К</span></p>
+                </div>
+            </section>
+
+
+            <!-- Факты в карточках -->
+            <section class="facts-grid">
+                <div class="fact-card">
+                    <h3>Первое фото</h3>
+                    <p>M87* — 10 апреля 2019 года</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Стрелец A*</h3>
+                    <p>4 млн солнечных масс</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Испарение</h3>
+                    <p>По Хокингу — да!</p>
+                </div>
+                <div class="fact-card">
+                    <h3>Сингулярность</h3>
+                    <p>Бесконечная плотность</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>© 2025 11Г Амина Салихова. Все права защищены.</p>
+        <p><a href="https://github.com/amiinasalikhova" target="_blank">GitHub: @amiinasalikhova</a></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Интерактивная чёрная дыра
+        const blackHole = document.getElementById('blackHole');
+        const rsSpan = document.getElementById('rs');
+        const tempSpan = document.getElementById('temp');
+
+        blackHole.addEventListener('mousemove', (e) => {
+            const rect = blackHole.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const dist = Math.sqrt((x - centerX)**2 + (y - centerY)**2);
+
+            if (dist < 100) {
+                rsSpan.textContent = "Ты у горизонта!";
+                tempSpan.textContent = "Время остановилось";
+            } else {
+                rsSpan.textContent = "12 млн км";
+                tempSpan.textContent = "10⁻⁸ К";
+            }
+        });
+    </script>
+    <!-- КОСМИЧЕСКИЙ ИНФОРМЕР -->
+<div class="cosmic-informer">
+    <div class="informer-header">
+        <span>СТАТУС КОСМОСА</span>
+        <button id="refreshBtn">Обновить</button>
+    </div>
+    <div class="informer-body">
+        <p>Время (МСК): <span id="moscowTime">--:--:--</span></p>
+        <p>Людей в космосе: <span id="astroCount">--</span></p>
+        <p>Температура на МКС: <span id="issTemp">--°C</span></p>
+        <p>До Луны: <span id="moonDist">-- км</span></p>
+        <p>До Марса: <span id="marsDist">-- млн км</span></p>
+        <p class="next-launch">Следующий пуск: <span id="nextLaunch">Загрузка...</span></p>
+    </div>
+</div>
+
+</body>
+</html>

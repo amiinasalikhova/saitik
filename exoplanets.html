@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экзопланеты: Поиск жизни во Вселенной</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars stars2"></div>
+    <div class="nebula"></div>
+
+    <div class="container">
+        <!-- Левая колонка — навигация -->
+        <aside class="sidebar">
+            <div class="logo">Космос</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="black-holes.html" class="nav-link">Чёрные дыры</a>
+                <a href="galaxies.html" class="nav-link">Галактики</a>
+                <a href="roscosmos.html" class="nav-link">Миссии Роскосмос</a>
+                <a href="exoplanets.html" class="nav-link active">Экзопланеты</a>
+            </nav>
+        </aside>
+
+        <!-- Правая колонка — контент -->
+        <main class="content">
+            <section class="hero exoplanet-hero">
+                <h1>Экзопланеты</h1>
+                <p class="subtitle">5700+ миров. Где-то там — жизнь?</p>
+                <div class="stats">
+                    <span>5708 подтверждённых</span> • <span>33 в зоне обитаемости</span> • <span>5 как Земля</span>
+                </div>
+                <a href="index.html" class="home-btn">Домой</a>
+            </section>
+
+            <!-- Две колонки текста -->
+            <div class="text-columns">
+                <p>С 1992 года открыто более <strong>5708 экзопланет</strong> в 4200 системах. Телескопы Kepler, TESS и Джеймс Уэбб находят их каждую неделю.</p>
+
+                <p>Самая лёгкая — <strong>TOI-561 b</strong> (меньше Земли), самая горячая — <strong>KELT-9b</strong> (+4300°C), самая холодная — <strong>OGLE-2016-BLG-1195Lb</strong> (−220°C).</p>
+
+                <p><strong>TRAPPIST-1</strong> — 7 планет размером с Землю, 3 в зоне обитаемости. <strong>Proxima Centauri b</strong> — ближайшая, в 4,24 световых года.</p>
+
+                <p>В 2024 году JWST нашёл <strong>воду и метан</strong> в атмосфере K2-18b — это лучший кандидат на океаническую планету!</p>
+
+                <p>Россия участвует в проекте <strong>«Спектр-М»</strong> — будущий телескоп для поиска биосигнатур в атмосферах экзопланет.</p>
+
+                <p>По оценкам учёных, в Млечном Пути — <strong>до 40 миллиардов планет земного типа</strong>. Шанс найти жизнь — выше, чем когда-либо!</p>
+            </div>
+
+            <!-- Поиск экзопланет -->
+            <section class="exoplanet-search">
+                <h2>Поиск экзопланет</h2>
+                <input type="text" id="searchInput" placeholder="Введите название (например: TRAPPIST-1e, Kepler-22b)" autocomplete="off">
+                <div id="results"></div>
+            </section>
+
+
+            <!-- 3D-система с обитаемой зоной -->
+            <section class="habitable-zone">
+                <h2>Зона обитаемости</h2>
+                <p class="hint">Кликни на планету — узнай, может ли там быть жизнь!</p>
+                <div class="solar-system-3d">
+                    <div class="star"></div>
+                    <div class="habitable-ring"></div>
+                    <div class="orbit" data-planet="Меркурий"></div>
+                    <div class="orbit" data-planet="Венера"></div>
+                    <div class="orbit earth-orbit" data-planet="Земля"></div>
+                    <div class="orbit" data-planet="Марс"></div>
+                    <div class="orbit" data-planet="TOI-700 d"></div>
+                    <div class="orbit" data-planet="TRAPPIST-1e"></div>
+                    <div class="orbit" data-planet="K2-18b"></div>
+                    <div class="planet mercury"></div>
+                    <div class="planet venus"></div>
+                    <div class="planet earth" data-name="Земля" data-temp="15°C" data-water="да" data-atmo="N₂+O₂"></div>
+                    <div class="planet mars"></div>
+                    <div class="planet toi700d" data-name="TOI-700 d" data-temp="0°C" data-water="возможно" data-atmo="CO₂"></div>
+                    <div class="planet trappist" data-name="TRAPPIST-1e" data-temp="-20°C" data-water="лёд" data-atmo="H₂O?"></div>
+                    <div class="planet k218b" data-name="K2-18b" data-temp="10°C" data-water="океан!" data-atmo="H₂O+CH₄"></div>
+                </div>
+                <div class="planet-info">
+                    <h3 id="planetName">Кликни на планету</h3>
+                    <p>Температура: <span id="planetTemp">-</span></p>
+                    <p>Вода: <span id="planetWater">-</span></p>
+                    <p>Атмосфера: <span id="planetAtmo">-</span></p>
+                    <p id="lifeChance">Шанс жизни: —</p>
+                </div>
+            </section>
+
+            <!-- Каталог лучших кандидатов -->
+            <section class="exoplanet-catalog">
+                <h2>Топ-7 кандидатов на обитаемость</h2>
+                <div class="catalog-grid">
+                    <div class="exo-card" data-name="Proxima b">
+                        <h3>Proxima b</h3>
+                        <p>4,24 св. года • Земля ×1.17 • 10°C</p>
+                    </div>
+                    <div class="exo-card" data-name="TRAPPIST-1e">
+                        <h3>TRAPPIST-1e</h3>
+                        <p>39 св. лет • Земля ×0.92 • −20°C • океан?</p>
+                    </div>
+                    <div class="exo-card" data-name="K2-18b">
+                        <h3>K2-18b</h3>
+                        <p>120 св. лет • Супер-Земля • океан + метан!</p>
+                    </div>
+                    <div class="exo-card" data-name="TOI-700 d">
+                        <h3>TOI-700 d</h3>
+                        <p>101 св. год • Земля ×1.1 • зона обитаемости</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>© 2025 11Г Амина Салихова. Все права защищены.</p>
+        <p><a href="https://github.com/amiinasalikhova" target="_blank">GitHub: @amiinasalikhova</a></p>
+    </footer>
+
+
+    <script src="js/script.js"></script>
+    <script>
+        // База данных экзопланет (часть из 5708)
+        const exoplanets = {
+            "trappist-1e": { name: "TRAPPIST-1e", distance: "39 св. лет", size: "0.92 Земли", temp: "-20°C", water: "лёд", atmo: "возможно H₂O", life: "высокий" },
+            "k2-18b": { name: "K2-18b", distance: "120 св. лет", size: "2.6 Земли", temp: "10°C", water: "глобальный океан!", atmo: "H₂O + CH₄", life: "очень высокий" },
+            "toi-700 d": { name: "TOI-700 d", distance: "101 св. год", size: "1.1 Земли", temp: "0°C", water: "возможно", atmo: "CO₂", life: "средний" },
+            "proxima b": { name: "Proxima Centauri b", distance: "4.24 св. года", size: "1.17 Земли", temp: "−39°C", water: "возможно", atmo: "неизвестно", life: "средний" },
+            "kepler-22b": { name: "Kepler-22b", distance: "600 св. лет", size: "2.4 Земли", temp: "22°C", water: "океан?", atmo: "плотная", life: "высокий" }
+        };
+
+        // Поиск
+        const input = document.getElementById('searchInput');
+        const results = document.getElementById('results');
+        input.addEventListener('input', () => {
+            const query = input.value.toLowerCase();
+            results.innerHTML = '';
+            if (query.length < 2) return;
+
+            Object.keys(exoplanets).forEach(key => {
+                if (key.includes(query) || exoplanets[key].name.toLowerCase().includes(query)) {
+                    const div = document.createElement('div');
+                    div.className = 'search-result';
+                    div.innerHTML = `<strong>${exoplanets[key].name}</strong><br>${exoplanets[key].distance} • ${exoplanets[key].temp}`;
+                    div.onclick = () => {
+                        input.value = exoplanets[key].name;
+                        results.innerHTML = '';
+                    };
+                    results.appendChild(div);
+                }
+            });
+        });
+
+        // 3D-орбиты и информация
+        document.querySelectorAll('.planet').forEach(p => {
+            p.addEventListener('click', () => {
+                const data = p.dataset;
+                document.getElementById('planetName').textContent = data.name || "Неизвестно";
+                document.getElementById('planetTemp').textContent = data.temp || "—";
+                document.getElementById('planetWater').textContent = data.water || "—";
+                document.getElementById('planetAtmo').textContent = data.atmo || "—";
+                document.getElementById('lifeChance').textContent = 
+                    data.water?.includes('океан') ? "ОЧЕНЬ ВЫСОКИЙ!" :
+                    data.water?.includes('да') ? "ЖИЗНЬ ЕСТЬ!" : "Возможна жизнь";
+            });
+        });
+
+        // Анимация звезды
+        document.querySelector('.star').style.animation = 'pulse-star 4s infinite';
+    </script>
+    <!-- КОСМИЧЕСКИЙ ИНФОРМЕР -->
+<div class="cosmic-informer">
+    <div class="informer-header">
+        <span>СТАТУС КОСМОСА</span>
+        <button id="refreshBtn">Обновить</button>
+    </div>
+    <div class="informer-body">
+        <p>Время (МСК): <span id="moscowTime">--:--:--</span></p>
+        <p>Людей в космосе: <span id="astroCount">--</span></p>
+        <p>Температура на МКС: <span id="issTemp">--°C</span></p>
+        <p>До Луны: <span id="moonDist">-- км</span></p>
+        <p>До Марса: <span id="marsDist">-- млн км</span></p>
+        <p class="next-launch">Следующий пуск: <span id="nextLaunch">Загрузка...</span></p>
+    </div>
+</div>
+
+</body>
+</html>
