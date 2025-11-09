@@ -1,0 +1,263 @@
+/* index2.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Звездное небо */
+.stars, .stars2, .stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.stars {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="white"/><circle cx="50" cy="30" r="2" fill="white"/><circle cx="80" cy="70" r="1.5" fill="white"/></svg>') repeat;
+    animation: twinkle 5s infinite;
+}
+
+.stars2 {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="1" fill="%23aaa"/></svg>') repeat;
+    animation: twinkle 8s infinite reverse;
+}
+
+.stars3 {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300"><circle cx="150" cy="150" r="0.5" fill="%23fff"/></svg>') repeat;
+    animation: twinkle 12s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+/* Заголовок */
+.hero {
+    text-align: center;
+    padding: 150px 20px;
+    position: relative;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px #fff, 0 0 40px #0ff;
+    animation: glow 3s infinite alternate;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    color: #0ff;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 30px #0ff, 0 0 50px #0ff; }
+}
+
+/* Контент */
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    margin: 40px 0 20px;
+    font-size: 2.5rem;
+}
+
+p, li {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.fact {
+    background: rgba(0, 255, 255, 0.1);
+    border-left: 5px solid #0ff;
+    padding: 15px;
+    margin: 30px 0;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+.facts-list {
+    list-style: none;
+}
+
+.facts-list li {
+    padding: 15px 0;
+    border-bottom: 1px dashed #333;
+    position: relative;
+    padding-left: 40px;
+}
+
+.facts-list li:before {
+    content: "★";
+    color: #0ff;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
+/* ИНТЕРАКТИВ: Черная дыра */
+.black-hole-container {
+    text-align: center;
+    margin: 50px 0;
+    perspective: 1000px;
+}
+
+.black-hole {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.event-horizon {
+    width: 100px;
+    height: 100px;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 50px 20px #000;
+    z-index: 3;
+    transition: all 0.5s ease;
+}
+
+.accretion-disk {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #ff4500, #ff8c00, #ffd700, transparent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    animation: rotate 10s linear infinite;
+    z-index: 2;
+}
+
+.grav-lens {
+    width: 350px;
+    height: 350px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+@keyframes rotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Ховер-эффект */
+.black-hole:hover .event-horizon {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 0 100px 50px #000;
+}
+
+.black-hole:hover .grav-lens {
+    opacity: 0.5;
+    animation: pulse 2s infinite;
+}
+
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7); }
+    70% { box-shadow: 0 0 0 50px rgba(0, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0); }
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+    margin-top: 50px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .black-hole { width: 200px; height: 200px; }
+    .event-horizon { width: 80px; height: 80px; }
+    .black-hole:hover .event-horizon { width: 120px; height: 120px; }
+}
+.home-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background: rgba(0, 255, 255, 0.2);
+    color: #0ff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    border: 2px solid #0ff;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.home-btn:hover {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+    transform: translateY(-3px);
+}
+
+.home-btn:hover:before {
+    left: 100%;
+}
+
+.home-btn:active {
+    transform: translateY(1px);
+}
+
+/* Улучшение позиционирования */
+.hero {
+    position: relative;
+    padding-bottom: 180px; /* Чтобы кнопка не перекрывала текст */
+}

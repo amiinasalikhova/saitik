@@ -1,0 +1,168 @@
+/* Космический фон */
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.stars, .stars2 {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: -2;
+}
+
+.stars {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="1" fill="white"/></svg>') repeat;
+    animation: twinkle 4s infinite;
+}
+
+.stars2 {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="0.5" fill="%23fff"/></svg>') repeat;
+    animation: twinkle 8s infinite reverse;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+.nebula {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(100, 0, 200, 0.1), transparent 70%);
+    z-index: -1;
+    animation: nebula 20s infinite alternate;
+}
+
+@keyframes nebula {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Навбар */
+.custom-navbar {
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d) !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+/* Карусель */
+#spaceCarousel img {
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Солнечная система */
+.solar-system {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.orbitron {
+    font-family: 'Orbitron', sans-serif;
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff;
+}
+
+.orbit-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    border: 2px dashed rgba(0, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.sun {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 60px; height: 60px;
+    background: radial-gradient(#ffdd00, #ff8800);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 50px #ffaa00;
+    z-index: 10;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    transform-origin: center;
+}
+
+.mercury-orbit { width: 120px; height: 120px; animation: orbit 4s linear infinite; }
+.mercury { width: 12px; height: 12px; background: #aaa; left: 50%; transform: translateX(-50%); }
+
+.venus-orbit { width: 200px; height: 200px; animation: orbit 10s linear infinite; }
+.venus { width: 20px; height: 20px; background: #e6b800; left: 50%; transform: translateX(-50%); }
+
+.earth-orbit { width: 280px; height: 280px; animation: orbit 15s linear infinite; }
+.earth { width: 24px; height: 24px; background: #1e90ff; left: 50%; transform: translateX(-50%); }
+
+.mars-orbit { width: 380px; height: 380px; animation: orbit 25s linear infinite; }
+.mars { width: 16px; height: 16px; background: #cd5c5c; left: 50%; transform: translateX(-50%); }
+
+.jupiter-orbit { width: 500px; height: 500px; animation: orbit 40s linear infinite; }
+.jupiter { width: 50px; height: 50px; background: #d2b55b; left: 50%; transform: translateX(-50%); }
+
+@keyframes orbit {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Ховер на планету */
+.planet:hover {
+    box-shadow: 0 0 20px #0ff;
+    transform: scale(1.5) !important;
+    z-index: 20;
+}
+
+.planet:after {
+    content: attr(data-name);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.planet:hover:after {
+    opacity: 1;
+}
+
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .orbit-container { width: 300px; height: 300px; }
+    .sun { width: 40px; height: 40px; }
+}
